@@ -18,7 +18,7 @@ class Reservation(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     date = models.DateField()
     time = models.TimeField()
-    duration = models.IntegerField()
+    party_size = models.IntegerField()
 
     def __str__(self):
-        return f"Reservation for {self.table} on {self.date} at {self.time}"
+        return f"Reservation for {self.party_size} on {self.date} at {self.time}"
