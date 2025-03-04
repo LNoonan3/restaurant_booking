@@ -53,3 +53,11 @@ def signup(request):
     else:
         form = UserCreationForm()
     return render(request, 'signup.html', {'form': form})
+
+
+def menu(request):
+    return render(request, 'menu.html')
+
+
+def contact(request):
+    return render(request, 'contact.html')
