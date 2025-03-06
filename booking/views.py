@@ -22,7 +22,12 @@ def book_table(request):
             reservation = form.save(commit=False)
             reservation.user = request.user
             reservation.save()
+            if request.is_ajax():
+                return JsonResponse({'success': True})
             return redirect('booking_confirmation')
+        else:
+            if request.is_ajax():
+                return JsonResponse({'success': False, 'error': form.errors.as_json()})
     else:
         form = ReservationForm()
     return render(request, 'book_table.html', {'form': form})

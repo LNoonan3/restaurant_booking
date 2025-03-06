@@ -1,29 +1,59 @@
-{% load static %}
+{% load static %} 
+
+{% url 'account_login' as login_url %} 
+{% url 'account_signup' as signup_url %} 
+{% url 'account_logout' as logout_url %}
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}Restaurant Booking{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'booking/css/styles.css' %}">
-</head>
-<body>
+    <link rel="stylesheet" href="{% static 'booking/css/styles.css' %}" />
+  </head>
+  <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'book_table' %}">Book a Table</a></li>
-                <li><a href="{% url 'menu' %}">Menu</a></li>
-                <li><a href="{% url 'contact' %}">Contact</a></li>
-            </ul>
-        </nav>
+      <nav>
+        <ul>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'book_table' %}">Book a Table</a></li>
+          <li><a href="{% url 'menu' %}">Menu</a></li>
+          <li><a href="{% url 'contact' %}">Contact</a></li>
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a
+              class="nav-link {% if request.path == logout_url %}active{% endif %}"
+              aria-current="page"
+              href="{% url 'account_logout' %}"
+              >Logout</a
+            >
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a
+              class="nav-link {% if request.path == signup_url %}active{% endif %}"
+              aria-current="page"
+              href="{% url 'account_signup' %}"
+              >Register</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link {% if request.path == login_url %}active{% endif %}"
+              aria-current="page"
+              href="{% url 'account_login' %}"
+              >Login</a
+            >
+          </li>
+          {% endif %}
+        </ul>
+      </nav>
     </header>
-    <main>
-        {% block content %}{% endblock %}
-    </main>
+    <main>{% block content %}{% endblock %}</main>
     <footer>
-        <p>&copy; 2025 Restaurant Booking. All rights reserved.</p>
+      <p>&copy; 2025 Restaurant Booking. All rights reserved.</p>
     </footer>
     <script src="{% static 'booking/js/scripts.js' %}"></script>
-</body>
+  </body>
 </html>
