@@ -14,11 +14,14 @@ def booking_options(request):
     return render(request, 'booking_options.html', {'tables': tables})
 
 
+@login_required
 def book_table(request):
     if request.method == 'POST':
         form = ReservationForm(request.POST)
         if form.is_valid():
-            form.save()
+            reservation = form.save(commit=False)
+            reservation.user = request.user
+            reservation.save()
             return redirect('booking_confirmation')
     else:
         form = ReservationForm()
