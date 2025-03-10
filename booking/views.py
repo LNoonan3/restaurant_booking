@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required, user_passes_test
+from django.core.mail import send_mail
 from django.contrib import messages
 from .models import Table, Reservation
 from .forms import ReservationForm
@@ -78,4 +79,21 @@ def menu(request):
 
 
 def contact(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+        
+        # Send email (you need to configure email settings in settings.py)
+        send_mail(
+            f'Message from {name}',
+            message,
+            email,
+            ['info@restaurant.com'],
+            fail_silently=False,
+        )
+        
+        messages.success(request, 'Your message has been sent successfully!')
+        return redirect('contact')
+    
     return render(request, 'contact.html')
