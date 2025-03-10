@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from .models import Table, Reservation
 from .forms import ReservationForm
 from django.contrib.auth.forms import UserCreationForm
@@ -22,7 +23,10 @@ def book_table(request):
             reservation = form.save(commit=False)
             reservation.user = request.user
             reservation.save()
+            messages.success(request, 'Your reservation has been confirmed!')
             return redirect('booking_confirmation')
+        else:
+            messages.error(request, 'There was an error with your booking. Please try again.')
     else:
         form = ReservationForm()
     return render(request, 'book_table.html', {'form': form})
