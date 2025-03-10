@@ -32,6 +32,17 @@ class BookingTests(TestCase):
         self.assertRedirects(response, reverse('booking_confirmation'))
         self.assertEqual(Reservation.objects.count(), 1)
 
+        # Attempt to double book the same table
+        response = self.client.post(reverse('book_table'), {
+            'table': self.table.id,
+            'date': '2025-03-10',
+            'time': '18:00',
+            'party_size': 2
+        })
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'This table is already booked for the selected date and time.')
+        self.assertEqual(Reservation.objects.count(), 1)
+
     def test_my_bookings(self):
         self.client.login(username='testuser', password='12345')
         Reservation.objects.create(table=self.table, user=self.user, date='2025-03-10', time='18:00', party_size=2)
