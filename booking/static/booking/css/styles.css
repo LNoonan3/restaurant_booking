@@ -1,127 +1,81 @@
-/* General styles */
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
     margin: 0;
     padding: 0;
+    background-color: #f4f4f4;
     color: #333;
 }
 
 header {
-    background-color: #343a40;
-    color: white;
-    padding: 1rem;
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
     text-align: center;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 1rem;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+header nav ul li a:hover {
+    text-decoration: underline;
 }
 
 main {
-    padding: 1rem;
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 footer {
-    background-color: #343a40;
-    color: white;
-    padding: 1rem;
+    background-color: #333;
+    color: #fff;
     text-align: center;
+    padding: 1rem 0;
     position: fixed;
     width: 100%;
     bottom: 0;
 }
 
-/* High-contrast styles for color blindness */
-a {
-    color: #0056b3;
-    text-decoration: underline;
-}
-
-a:visited {
-    color: #929292;
-}
-
-a:hover {
-    color: #ff4500;
-}
-
 button {
-    background-color: #0056b3;
-    color: rgb(255, 255, 255);
+    background-color: #007bff;
+    color: #fff;
     border: none;
     padding: 0.5rem 1rem;
     cursor: pointer;
+    font-size: 1rem;
 }
 
 button:hover {
-    background-color: #ff4500;
+    background-color: #0056b3;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    color: #343a40;
+form {
+    display: flex;
+    flex-direction: column;
 }
 
-/* Patterns for additional distinction */
-.header-pattern {
-    background-image: linear-gradient(45deg, #343a40 25%, transparent 25%, transparent 50%, #343a40 50%, #343a40 75%, transparent 75%, transparent);
-    background-size: 1rem 1rem;
+form input, form select {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    font-size: 1rem;
 }
 
-.main-pattern {
-    background-image: linear-gradient(45deg, #f8f9fa 25%, transparent 25%, transparent 50%, #f8f9fa 50%, #f8f9fa 75%, transparent 75%, transparent);
-    background-size: 1rem 1rem;
-}
-
-.footer-pattern {
-    background-image: linear-gradient(45deg, #343a40 25%, transparent 25%, transparent 50%, #343a40 50%, #343a40 75%, transparent 75%, transparent);
-    background-size: 1rem 1rem;
-}
-
-/* Responsive styles */
-@media (max-width: 600px) {
-    /* Styles for phones */
-    header, footer {
-        padding: 0.5rem;
-        text-align: center;
-    }
-
-    main {
-        padding: 0.5rem;
-    }
-
-    button {
-        padding: 0.5rem;
-        width: 100%;
-    }
-}
-
-@media (min-width: 601px) and (max-width: 1024px) {
-    /* Styles for tablets */
-    header, footer {
-        padding: 1rem;
-        text-align: center;
-    }
-
-    main {
-        padding: 1rem;
-    }
-
-    button {
-        padding: 0.5rem 1rem;
-        width: auto;
-    }
-}
-
-@media (min-width: 1025px) {
-    /* Styles for desktops */
-    header, footer {
-        padding: 1.5rem;
-        text-align: center;
-    }
-
-    main {
-        padding: 1.5rem;
-    }
-
-    button {
-        padding: 0.5rem 1rem;
-        width: auto;
-    }
+form button {
+    align-self: flex-start;
 }

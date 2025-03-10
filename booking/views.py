@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib import messages
 from .models import Table, Reservation
 from .forms import ReservationForm
@@ -13,6 +13,17 @@ def home(request):
 def booking_options(request):
     tables = Table.objects.all()
     return render(request, 'booking_options.html', {'tables': tables})
+
+
+def is_admin(user):
+    return user.is_staff
+
+
+@login_required
+@user_passes_test(is_admin)
+def manage_reservations(request):
+    reservations = Reservation.objects.all()
+    return render(request, 'manage_reservations.html', {'reservations': reservations})
 
 
 @login_required
