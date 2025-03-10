@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Menu{% endblock %}
 
@@ -7,27 +8,92 @@
 <p>Explore our delicious Japanese cuisine.</p>
 
 <h3>Appetizers</h3>
-<ul>
-    <li><strong>Edamame</strong> - Steamed soybeans with sea salt</li>
-    <li><strong>Gyoza</strong> - Pan-fried dumplings filled with pork and vegetables</li>
-    <li><strong>Tempura</strong> - Lightly battered and fried shrimp and vegetables</li>
-    <li><strong>Miso Soup</strong> - Traditional Japanese soup with tofu, seaweed, and green onions</li>
+<ul class="menu-list">
+    <li>
+        <img src="{% static 'booking/images/edamame.jpg' %}" alt="Edamame">
+        <div>
+            <strong>Edamame</strong> - Steamed soybeans with sea salt
+        </div>
+    </li>
+    <li>
+        <img src="{% static 'booking/images/gyoza.jpg' %}" alt="Gyoza">
+        <div>
+            <strong>Gyoza</strong> - Pan-fried dumplings filled with pork and vegetables
+        </div>
+    </li>
+    <li>
+        <img src="{% static 'booking/images/tempura.jpg' %}" alt="Tempura">
+        <div>
+            <strong>Tempura</strong> - Lightly battered and fried shrimp and vegetables
+        </div>
+    </li>
+    <li>
+        <img src="{% static 'booking/images/miso_soup.jpg' %}" alt="Miso Soup">
+        <div>
+            <strong>Miso Soup</strong> - Traditional Japanese soup with tofu, seaweed, and green onions
+        </div>
+    </li>
 </ul>
 
 <h3>Main Courses</h3>
-<ul>
-    <li><strong>Sushi Platter</strong> - Assorted sushi rolls and nigiri</li>
-    <li><strong>Ramen</strong> - Noodles in a savory broth with pork, egg, and vegetables</li>
-    <li><strong>Teriyaki Chicken</strong> - Grilled chicken with teriyaki sauce, served with rice and vegetables</li>
-    <li><strong>Beef Udon</strong> - Thick udon noodles with beef and vegetables in a flavorful broth</li>
-    <li><strong>Vegetable Tempura</strong> - Lightly battered and fried seasonal vegetables</li>
+<ul class="menu-list">
+    <li>
+        <img src="{% static 'booking/images/sushi_platter.jpg' %}" alt="Sushi Platter">
+        <div>
+            <strong>Sushi Platter</strong> - Assorted sushi rolls and nigiri
+        </div>
+    </li>
+    <li>
+        <img src="{% static 'booking/images/ramen.jpg' %}" alt="Ramen">
+        <div>
+            <strong>Ramen</strong> - Noodles in a savory broth with pork, egg, and vegetables
+        </div>
+    </li>
+    <li>
+        <img src="{% static 'booking/images/teriyaki_chicken.jpg' %}" alt="Teriyaki Chicken">
+        <div>
+            <strong>Teriyaki Chicken</strong> - Grilled chicken with teriyaki sauce, served with rice and vegetables
+        </div>
+    </li>
+    <li>
+        <img src="{% static 'booking/images/beef_udon.jpg' %}" alt="Beef Udon">
+        <div>
+            <strong>Beef Udon</strong> - Thick udon noodles with beef and vegetables in a flavorful broth
+        </div>
+    </li>
+    <li>
+        <img src="{% static 'booking/images/vegetable_tempura.jpg' %}" alt="Vegetable Tempura">
+        <div>
+            <strong>Vegetable Tempura</strong> - Lightly battered and fried seasonal vegetables
+        </div>
+    </li>
 </ul>
 
 <h3>Desserts</h3>
-<ul>
-    <li><strong>Mochi Ice Cream</strong> - Sweet rice cake filled with ice cream</li>
-    <li><strong>Green Tea Cheesecake</strong> - Creamy cheesecake with a hint of matcha</li>
-    <li><strong>Red Bean Paste Bun</strong> - Steamed bun filled with sweet red bean paste</li>
-    <li><strong>Japanese Crepe</strong> - Thin crepe filled with fresh fruits and whipped cream</li>
+<ul class="menu-list">
+    <li>
+        <img src="{% static 'booking/images/mochi_ice_cream.jpg' %}" alt="Mochi Ice Cream">
+        <div>
+            <strong>Mochi Ice Cream</strong> - Sweet rice cake filled with ice cream
+        </div>
+    </li>
+    <li>
+        <img src="{% static 'booking/images/green_tea_cheesecake.jpg' %}" alt="Green Tea Cheesecake">
+        <div>
+            <strong>Green Tea Cheesecake</strong> - Creamy cheesecake with a hint of matcha
+        </div>
+    </li>
+    <li>
+        <img src="{% static 'booking/images/red_bean_paste_bun.jpg' %}" alt="Red Bean Paste Bun">
+        <div>
+            <strong>Red Bean Paste Bun</strong> - Steamed bun filled with sweet red bean paste
+        </div>
+    </li>
+    <li>
+        <img src="{% static 'booking/images/japanese_crepe.jpg' %}" alt="Japanese Crepe">
+        <div>
+            <strong>Japanese Crepe</strong> - Thin crepe filled with fresh fruits and whipped cream
+        </div>
+    </li>
 </ul>
 {% endblock %}

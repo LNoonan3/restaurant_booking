@@ -150,17 +150,14 @@ a:hover {
 }
 
 /* Menu Page Styles */
-h3 {
-    color: #343a40;
-    margin-top: 2rem;
-}
-
-ul {
+.menu-list {
     list-style-type: none;
     padding: 0;
 }
 
-ul li {
+.menu-list li {
+    display: flex;
+    align-items: center;
     background-color: #f8f9fa;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -168,7 +165,19 @@ ul li {
     margin-bottom: 1rem;
 }
 
-ul li strong {
+.menu-list li img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 1rem;
+}
+
+.menu-list li div {
+    flex: 1;
+}
+
+.menu-list li strong {
     display: block;
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
