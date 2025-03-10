@@ -4,7 +4,8 @@
 <h2>Welcome to Our Restaurant</h2>
 <p>Location: 123 Main St, City</p>
 <p>Hours: 10 AM - 10 PM</p>
-<a href="{% url 'booking_options' %}">Tables Available</a>
-<a href="{% url 'menu' %}">View Menu</a>
-<a href="{% url 'contact' %}">Contact Us</a>
+<p>Book a table and enjoy a wonderful dining experience.</p>
+<a href="{% url 'booking_options' %}" class="btn">View Available Tables</a>
+<a href="{% url 'menu' %}" class="btn">View Menu</a>
+<a href="{% url 'contact' %}" class="btn">Contact Us</a>
 {% endblock %}

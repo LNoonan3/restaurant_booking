@@ -1,14 +1,14 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #f8f9fa;
     color: #333;
 }
 
 header {
-    background-color: #333;
+    background-color: #343a40;
     color: #fff;
     padding: 1rem 0;
     text-align: center;
@@ -17,10 +17,12 @@ header {
 header nav ul {
     list-style: none;
     padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
 }
 
 header nav ul li {
-    display: inline;
     margin: 0 1rem;
 }
 
@@ -43,7 +45,7 @@ main {
 }
 
 footer {
-    background-color: #333;
+    background-color: #343a40;
     color: #fff;
     text-align: center;
     padding: 1rem 0;
@@ -59,6 +61,7 @@ button {
     padding: 0.5rem 1rem;
     cursor: pointer;
     font-size: 1rem;
+    border-radius: 5px;
 }
 
 button:hover {
@@ -74,8 +77,72 @@ form input, form select {
     margin-bottom: 1rem;
     padding: 0.5rem;
     font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 form button {
     align-self: flex-start;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #343a40;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+    header, footer {
+        padding: 0.5rem;
+        text-align: center;
+    }
+
+    main {
+        padding: 0.5rem;
+    }
+
+    button {
+        padding: 0.5rem;
+        width: 100%;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+    header, footer {
+        padding: 1rem;
+        text-align: center;
+    }
+
+    main {
+        padding: 1rem;
+    }
+
+    button {
+        padding: 0.5rem 1rem;
+        width: auto;
+    }
+}
+
+@media (min-width: 1025px) {
+    header, footer {
+        padding: 1.5rem;
+        text-align: center;
+    }
+
+    main {
+        padding: 1.5rem;
+    }
+
+    button {
+        padding: 0.5rem 1rem;
+        width: auto;
+    }
 }
