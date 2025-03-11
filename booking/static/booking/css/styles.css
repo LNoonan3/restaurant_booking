@@ -1,3 +1,9 @@
+/*override default styles added by the browser*/
+* {
+    padding: 0;
+    box-sizing: border-box;
+}
+
 /* General Styles */
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -47,6 +53,7 @@ main {
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
+    flex: 1 0 auto;
 }
 
 footer {
