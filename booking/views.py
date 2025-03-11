@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.core.mail import send_mail
 from django.contrib import messages
@@ -29,6 +29,12 @@ def manage_reservations(request):
 
 @login_required
 def book_table(request):
+    table_id = request.GET.get('table')
+    if table_id:
+        table = get_object_or_404(Table, id=table_id)
+    else:
+        table = None
+
     if request.method == 'POST':
         form = ReservationForm(request.POST)
         if form.is_valid():
@@ -40,8 +46,9 @@ def book_table(request):
         else:
             messages.error(request, 'There was an error with your booking. Please try again.')
     else:
-        form = ReservationForm()
-    return render(request, 'book_table.html', {'form': form})
+        form = ReservationForm(initial={'table': table})
+
+    return render(request, 'book_table.html', {'form': form, 'table': table})
 
 
 @login_required

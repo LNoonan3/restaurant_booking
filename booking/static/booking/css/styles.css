@@ -188,6 +188,52 @@ a:hover {
     margin-bottom: 0.5rem;
 }
 
+/* Booking Options Page Styles */
+.table-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.table-list li {
+    display: flex;
+    align-items: center;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    justify-content: space-between;
+}
+
+.table-info {
+    flex: 1;
+}
+
+.table-info strong {
+    display: block;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.table-info p {
+    margin: 0.5rem 0;
+}
+
+.btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
 /* Responsive styles */
 @media (max-width: 600px) {
     header, footer {

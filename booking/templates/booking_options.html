@@ -2,10 +2,18 @@
 {% block title %}Booking Options{% endblock %}
 {% block content %}
 <h2>Available Tables</h2>
-<ul>
+<p>Select a table to book for your dining experience.</p>
+
+<ul class="table-list">
     {% for table in tables %}
-    <li>{{ table }}</li>
+    <li>
+        <div class="table-info">
+            <strong>Table {{ table.number }}</strong>
+            <p>Location: {{ table.location }}</p>
+            <p>Capacity: {{ table.capacity }} people</p>
+        </div>
+        <a href="{% url 'book_table' %}?table={{ table.id }}" class="btn">Book This Table</a>
+    </li>
     {% endfor %}
 </ul>
-<a href="{% url 'book_table' %}">Book a Table</a>
 {% endblock %}
