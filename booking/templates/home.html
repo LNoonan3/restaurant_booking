@@ -1,11 +1,63 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}Home{% endblock %}
 {% block content %}
 <h2>Welcome to Our Restaurant</h2>
 <p>Location: 123 Main St, City</p>
 <p>Hours: 10 AM - 10 PM</p>
 <p>Book a table and enjoy a wonderful dining experience.</p>
-<a href="{% url 'booking_options' %}" class="btn">View Available Tables</a>
-<a href="{% url 'menu' %}" class="btn">View Menu</a>
-<a href="{% url 'contact' %}" class="btn">Contact Us</a>
+
+<!-- Call to Action Buttons -->
+<div class="cta-buttons">
+    <a href="{% url 'booking_options' %}" class="btn">View Available Tables</a>
+    <a href="{% url 'menu' %}" class="btn">View Menu</a>
+    <a href="{% url 'contact' %}" class="btn">Contact Us</a>
+</div>
+
+<!-- Featured Dishes Section -->
+<section class="featured-dishes">
+    <h3>Featured Dishes</h3>
+    <ul class="dish-list">
+        <li>
+            <img src="{% static 'booking/images/sushi_platter.jpg' %}" alt="Sushi Platter">
+            <div>
+                <strong>Sushi Platter</strong>
+                <p>Assorted sushi rolls and nigiri</p>
+            </div>
+        </li>
+        <li>
+            <img src="{% static 'booking/images/ramen.jpg' %}" alt="Ramen">
+            <div>
+                <strong>Ramen</strong>
+                <p>Noodles in a savory broth with pork, egg, and vegetables</p>
+            </div>
+        </li>
+        <li>
+            <img src="{% static 'booking/images/green_tea_cheesecake.jpg' %}" alt="Green Tea Cheesecake">
+            <div>
+                <strong>Green Tea Cheesecake</strong>
+                <p>Creamy cheesecake with a hint of matcha</p>
+            </div>
+        </li>
+    </ul>
+</section>
+
+<!-- Customer Testimonials Section -->
+<section class="testimonials">
+    <h3>Customer Testimonials</h3>
+    <div class="testimonial">
+        <p>"The best dining experience I've ever had! The sushi platter was amazing."</p>
+        <p><strong>- Jane Doe</strong></p>
+    </div>
+    <div class="testimonial">
+        <p>"The ramen was delicious and the service was excellent. Highly recommend!"</p>
+        <p><strong>- John Smith</strong></p>
+    </div>
+</section>
+
+<!-- Call to Action Section -->
+<section class="cta-section">
+    <h3>Ready to Book a Table?</h3>
+    <a href="{% url 'booking_options' %}" class="btn">Book Now</a>
+</section>
 {% endblock %}
