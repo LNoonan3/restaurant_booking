@@ -194,6 +194,52 @@ a:hover {
     background-color: #0056b3;
 }
 
+/* My Bookings Page Styles */
+.reservation-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.reservation-list li {
+    display: flex;
+    align-items: center;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    justify-content: space-between;
+}
+
+.reservation-info {
+    flex: 1;
+}
+
+.reservation-info strong {
+    display: block;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.reservation-info p {
+    margin: 0.5rem 0;
+}
+
+.cancel-btn {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.cancel-btn:hover {
+    background-color: #c82333;
+}
+
 /* Contact Page Styles */
 .contact-info, .contact-form, .map {
     margin-bottom: 2rem;

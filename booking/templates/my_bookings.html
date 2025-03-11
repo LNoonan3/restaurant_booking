@@ -2,9 +2,20 @@
 {% block title %}My Bookings{% endblock %}
 {% block content %}
 <h2>My Bookings</h2>
-<ul>
+<p>Here are your upcoming reservations:</p>
+
+<!-- Reservations List -->
+<ul class="reservation-list">
     {% for reservation in reservations %}
-    <li>{{ reservation }} <a href="{% url 'cancel_reservation' reservation.id %}">Cancel</a></li>
+    <li>
+        <div class="reservation-info">
+            <strong>Table {{ reservation.table.number }}</strong>
+            <p>Date: {{ reservation.date }}</p>
+            <p>Time: {{ reservation.time }}</p>
+            <p>Party Size: {{ reservation.party_size }}</p>
+        </div>
+        <a href="{% url 'cancel_reservation' reservation.id %}" class="btn cancel-btn">Cancel</a>
+    </li>
     {% endfor %}
 </ul>
 {% endblock %}

@@ -88,11 +88,14 @@ def my_bookings(request):
 
 @login_required
 def cancel_reservation(request, reservation_id):
-    reservation = Reservation.objects.get(id=reservation_id)
-    if reservation.user == request.user:
+    reservation = get_object_or_404(Reservation, id=reservation_id)
+    if reservation.user == request.user or request.user.is_staff:
         reservation.delete()
+        messages.success(request, 'Your reservation has been canceled successfully.')
         return redirect('my_bookings')
-    return redirect('home')
+    else:
+        messages.error(request, 'You are not authorized to cancel this reservation.')
+        return redirect('home')
 
 
 def booking_confirmation(request):
