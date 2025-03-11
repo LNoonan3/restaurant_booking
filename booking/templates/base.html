@@ -21,6 +21,7 @@
   <body>
     <header role="banner">
         <nav role="navigation">
+            <div class="logo">Restaurant</div>
             <ul>
                 <li><a href="{% url 'home' %}">Home</a></li>
                 <li><a href="{% url 'book_table' %}">Book a Table</a></li>
@@ -37,6 +38,11 @@
                     <li><a href="{% url 'account_login' %}">Login</a></li>
                 {% endif %}
             </ul>
+            <div class="hamburger" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
         </nav>
     </header>
     <main role="main">
@@ -46,5 +52,11 @@
         <p>&copy; 2025 Restaurant Booking. All rights reserved.</p>
     </footer>
     <script src="{% static 'booking/js/scripts.js' %}"></script>
+    <script>
+        function toggleMenu() {
+            const nav = document.querySelector('header nav ul');
+            nav.classList.toggle('active');
+        }
+    </script>
   </body>
 </html>

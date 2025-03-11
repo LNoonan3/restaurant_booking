@@ -27,16 +27,30 @@ header {
     z-index: 1000;
 }
 
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+header nav .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
 header nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
-    justify-content: center;
+    gap: 1rem;
 }
 
 header nav ul li {
-    margin: 0 1rem;
+    margin: 0;
 }
 
 header nav ul li a {
@@ -47,6 +61,45 @@ header nav ul li a {
 
 header nav ul li a:hover {
     text-decoration: underline;
+}
+
+header .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+header .hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 4px 0;
+}
+
+@media (max-width: 768px) {
+    header nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #343a40;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 1rem 0;
+    }
+
+    header nav ul li {
+        margin: 0.5rem 0;
+        text-align: center;
+    }
+
+    header .hamburger {
+        display: flex;
+    }
+
+    header nav ul.active {
+        display: flex;
+    }
 }
 
 main {
