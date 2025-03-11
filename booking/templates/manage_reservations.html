@@ -1,9 +1,12 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Manage Reservations{% endblock %}
 
 {% block content %}
 <h1>Manage Reservations</h1>
+
+<!-- Reservations Table -->
 <table>
     <thead>
         <tr>
@@ -12,6 +15,7 @@
             <th>Date</th>
             <th>Time</th>
             <th>Party Size</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -22,6 +26,10 @@
             <td>{{ reservation.date }}</td>
             <td>{{ reservation.time }}</td>
             <td>{{ reservation.party_size }}</td>
+            <td>
+                <a href="{% url 'edit_reservation' reservation.id %}" class="btn">Edit</a>
+                <a href="{% url 'cancel_reservation' reservation.id %}" class="btn">Cancel</a>
+            </td>
         </tr>
         {% endfor %}
     </tbody>

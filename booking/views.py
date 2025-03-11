@@ -22,8 +22,37 @@ def is_admin(user):
 
 @login_required
 @user_passes_test(is_admin)
+def edit_reservation(request, reservation_id):
+    reservation = get_object_or_404(Reservation, id=reservation_id)
+    if request.method == 'POST':
+        form = ReservationForm(request.POST, instance=reservation)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Reservation updated successfully.')
+            return redirect('manage_reservations')
+        else:
+            messages.error(request, 'There was an error updating the reservation. Please try again.')
+    else:
+        form = ReservationForm(instance=reservation)
+    return render(request, 'edit_reservation.html', {'form': form, 'reservation': reservation})
+
+
+@login_required
+@user_passes_test(is_admin)
 def manage_reservations(request):
     reservations = Reservation.objects.all()
+
+    user_filter = request.GET.get('user')
+    date_filter = request.GET.get('date')
+    table_filter = request.GET.get('table')
+
+    if user_filter:
+        reservations = reservations.filter(user__username__icontains=user_filter)
+    if date_filter:
+        reservations = reservations.filter(date=date_filter)
+    if table_filter:
+        reservations = reservations.filter(table__number=table_filter)
+
     return render(request, 'manage_reservations.html', {'reservations': reservations})
 
 
@@ -90,7 +119,7 @@ def contact(request):
         name = request.POST.get('name')
         email = request.POST.get('email')
         message = request.POST.get('message')
-        
+
         # Send email (you need to configure email settings in settings.py)
         send_mail(
             f'Message from {name}',
@@ -99,8 +128,8 @@ def contact(request):
             ['info@restaurant.com'],
             fail_silently=False,
         )
-        
+
         messages.success(request, 'Your message has been sent successfully!')
         return redirect('contact')
-    
+
     return render(request, 'contact.html')
