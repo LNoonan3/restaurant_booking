@@ -221,10 +221,6 @@ The application is deployed on Heroku. Follow these steps to deploy:
     heroku run python manage.py createsuperuser
     ```
 
-### Deployment Documentation
-
-The deployment process is documented in detail in the `deployment.md` file.
-
 ## Security Considerations
 
 - Secret keys and passwords are stored in environment variables and not committed to the repository.
