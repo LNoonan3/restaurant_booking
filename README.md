@@ -1,5 +1,7 @@
 # Restaurant Booking System
 
+**View the live project [here](https://restaurant-booking1-e41bd380dfd7.herokuapp.com/).**
+
 ## Project Overview
 
 The Restaurant Booking System is a fully-functioning, interactive web application designed to manage table reservations for a restaurant. The application allows users to create, view, edit, and delete reservations, ensuring a seamless booking experience. The project follows the principles of UX design, accessibility guidelines, and is built using the Django MVC framework.
