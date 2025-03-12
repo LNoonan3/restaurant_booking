@@ -17,26 +17,24 @@ The Restaurant Booking System is a fully-functioning, interactive web applicatio
 9. [Deployment](#deployment)
 10. [Security Considerations](#security-considerations)
 11. [Contributing](#contributing)
+10. [Credits](#credits)
+11. [Acknowledgements](#acknowledgements)
 
 ## Features
 
-- User registration and login with role-based access control
-- Create, view, edit, and delete table reservations
-- Responsive design following UX principles
-- Data validation and user feedback
-- Automated and manual testing
-- Cloud-based deployment
-
+- **User Registration and Login**: Secure user authentication with role-based access control.
+- **Table Reservations**: Users can create, view, edit, and delete table reservations.
+- **Responsive Design**: The application is fully responsive and works on desktop, tablet, and mobile devices.
+- **Data Validation**: Input validation to ensure data integrity.
+- **User Feedback**: Clear confirmation and error messages to guide users.
+- **Admin Dashboard**: Admin users can manage tables and reservations.
 ## Technologies Used
 
-- Django
-- HTML5
-- CSS3
-- JavaScript
-- Bootstrap
-- PostgreSQL
-- Git & GitHub
-- Heroku (for deployment)
+- **Languages**: Python, HTML5, CSS3, JavaScript
+- **Frameworks**: Django, Bootstrap
+- **Database**: PostgreSQL
+- **Version Control**: Git & GitHub
+- **Deployment**: Heroku
 
 ## Installation
 
@@ -166,6 +164,15 @@ To run the tests, use the following command:
 python manage.py test
 ```
 
+### Performance Testing
+
+Performance testing was conducted using Lighthouse. The results are:
+
+- **Performance**: 82
+- **Accessibility**: 92
+- **Best Practices**: 100
+- **SEO**: 91
+
 ### Manual Testing
 
 Manual testing was conducted to assess the following:
@@ -245,3 +252,14 @@ Contributions are welcome! Please follow these steps to contribute:
     ```
 
 5. Create a pull request with a detailed description of your changes.
+
+## Credits
+
+- **Django Documentation**: For guidance on using the Django framework.
+- **Heroku Documentation**: For deployment instructions.
+
+## Acknowledgements
+
+- **Mentor**: Thanks to my mentor for guidance and support throughout the project.
+- **Family and Friends**: For testing the application and providing valuable feedback.
+- **Code Institute**: For providing the resources and support to complete this project.
