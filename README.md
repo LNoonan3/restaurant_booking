@@ -1,131 +1,247 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Restaurant Booking System
 
-Welcome USER_NAME,
+## Project Overview
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+The Restaurant Booking System is a fully-functioning, interactive web application designed to manage table reservations for a restaurant. The application allows users to create, view, edit, and delete reservations, ensuring a seamless booking experience. The project follows the principles of UX design, accessibility guidelines, and is built using the Django MVC framework.
 
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **June 18, 2024**
+## Table of Contents
 
-## Gitpod Reminders
+1. [Project Overview](#project-overview)
+2. [Features](#features)
+3. [Technologies Used](#technologies-used)
+4. [Installation](#installation)
+5. [Usage](#usage)
+6. [Data Model](#data-model)
+7. [User Stories](#user-stories)
+8. [Testing](#testing)
+9. [Deployment](#deployment)
+10. [Security Considerations](#security-considerations)
+11. [Contributing](#contributing)
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## Features
 
-`python3 -m http.server`
+- User registration and login with role-based access control
+- Create, view, edit, and delete table reservations
+- Responsive design following UX principles
+- Data validation and user feedback
+- Automated and manual testing
+- Cloud-based deployment
 
-A blue button should appear to click: _Make Public_,
+## Technologies Used
 
-Another blue button should appear to click: _Open Browser_.
+- Django
+- HTML5
+- CSS3
+- JavaScript
+- Bootstrap
+- PostgreSQL
+- Git & GitHub
+- Heroku (for deployment)
 
-To run a backend Python file, type `python3 app.py` if your Python file is named `app.py`, of course.
+## Installation
 
-A blue button should appear to click: _Make Public_,
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/yourusername/restaurant_booking.git
+    cd restaurant_booking
+    ```
 
-Another blue button should appear to click: _Open Browser_.
+2. Create a virtual environment and activate it:
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+    ```
 
-By Default, Gitpod gives you superuser security privileges. Therefore, you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+3. Install the required packages:
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-To log into the Heroku toolbelt CLI:
+4. Set up the database:
+    ```bash
+    python manage.py makemigrations
+    python manage.py migrate
+    ```
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+5. Create a superuser:
+    ```bash
+    python manage.py createsuperuser
+    ```
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, you can create a new one with _Regenerate API Key_.
+6. Run the development server:
+    ```bash
+    python manage.py runserver
+    ```
 
-### Connecting your Mongo database
+## Usage
 
-- **Connect to Mongo CLI on a IDE**
-- navigate to your MongoDB Clusters Sandbox
-- click **"Connect"** button
-- select **"Connect with the MongoDB shell"**
-- select **"I have the mongo shell installed"**
-- choose **mongosh (2.0 or later)** for : **"Select your mongo shell version"**
-- choose option: **"Run your connection string in your command line"**
-- in the terminal, paste the copied code `mongo "mongodb+srv://<CLUSTER-NAME>.mongodb.net/<DBname>" --apiVersion 1 --username <USERNAME>`
-  - replace all `<angle-bracket>` keys with your own data
-- enter password _(will not echo **\*\*\*\*** on screen)_
+1. Register a new user or log in with an existing account.
+2. Navigate to the reservations page to create a new reservation.
+3. View, edit, or delete existing reservations.
+4. Admin users can manage all reservations and user accounts.
 
-------
+## Data Model
 
-## Release History
+The data model consists of the following entities:
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+- **User**: Represents a user of the system with role-based access.
+- **Table**: Represents a table in the restaurant with attributes like table number and capacity.
+- **Reservation**: Represents a reservation made by a user, linked to a specific table and time slot.
 
-**June 18, 2024,** Add Mongo back into template
+### Schema
 
-**June 14, 2024,** Temporarily remove Mongo until the key issue is resolved
+```python
+class Table(models.Model):
+    table_number = models.IntegerField(unique=True)
+    capacity = models.IntegerField()
 
-**May 28 2024:** Fix Mongo and Links installs
-
-**April 26 2024:** Update node version to 16
-
-**September 20 2023:** Update Python version to 3.9.17.
-
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
-
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
-
-**July 2 2021:** Remove extensions that are not available in Open VSX.
-
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
-
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
-
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
-
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
+class Reservation(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    table = models.ForeignKey(Table, on_delete=models.CASCADE)
+    reservation_time = models.DateTimeField()
+    guests = models.IntegerField()
 ```
 
-**Anything more?**
+## User Stories
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+### Guest
 
----
+1. **As a guest, I can view the restaurant's booking option so that I know when I can make a reservation.**
+    - **Acceptance criteria 1**: The landing page displays essential restaurant information (e.g., location, hours, and a "Book a Table" button).
+    - **Acceptance criteria 2**: The booking page intuitively shows available dates and time slots.
+    - **Acceptance criteria 3**: The pages are responsive and render correctly on desktop, tablet, and mobile devices.
 
-Happy coding!
+    ![Landing Page](booking/static/booking/images/README/landing_page.png)
+    ![Booking Page](booking/static/booking/images/README/booking_page.png)
+
+2. **As a guest, I can fill out a booking form so that I can reserve a table without registering immediately.**
+    - **Acceptance criteria 1**: The booking form includes input fields for date, time, and party size.
+    - **Acceptance criteria 2**: The system validates inputs (e.g., date is in the future, party size is positive).
+    - **Acceptance criteria 3**: A clear confirmation message is displayed after a successful reservation, or an error is shown if no table is available.
+
+    ![Booking Form](booking\static\booking\images\README\booking_form.png)
+    ![Confirmation Message](booking\static\booking\images\README\confirmation_message.png)
+
+### Customer
+
+3. **As a customer, I can log in and view my reservations so that I can manage or cancel my bookings.**
+    - **Acceptance criteria 1**: Users can securely register, log in, and log out.
+    - **Acceptance criteria 2**: The "My Bookings" page lists all current and past reservations with details like date, time, and party size.
+    - **Acceptance criteria 3**: Users can cancel an upcoming reservation and receive a cancellation confirmation.
+
+    ![Login Page](booking\static\booking\images\README\login_page.png)
+    ![My Bookings Page](booking\static\booking\images\README\my_bookings_page.png)
+
+### Administrator
+
+4. **As an administrator, I can manage table and reservation records so that I can efficiently control restaurant capacity and bookings.**
+    - **Acceptance criteria 1**: The admin dashboard allows CRUD operations (create, read, update, delete) on table records (e.g., table number, capacity, location).
+    - **Acceptance criteria 2**: The dashboard displays a summary of all reservations and enables filtering by date or status.
+    - **Acceptance criteria 3**: Only authenticated admin users have access to these management features.
+
+    ![Admin Dashboard](booking\static\booking\images\README\admin_dashboard.png)
+
+### User
+
+5. **As a user, I can receive booking confirmation notifications so that I have assurance my reservation is successfully made.**
+    - **Acceptance criteria 1**: Upon a successful booking, a confirmation page with reservation details is displayed.
+    - **Acceptance criteria 2**: (Optional) A confirmation email is sent to the user's email address with booking details.
+    - **Acceptance criteria 3**: Clear error messages are provided if the reservation fails (e.g., due to table unavailability).
+
+    ![Error Message](booking\static\booking\images\README\error_message,png.png)
+
+## Testing
+
+### Automated Testing
+
+Automated tests are implemented using Django's testing framework. The tests cover the following aspects:
+
+- Model tests to ensure data integrity
+- View tests to verify the correct rendering of templates
+- Form tests to validate user input
+
+To run the tests, use the following command:
+
+```bash
+python manage.py test
+```
+
+### Manual Testing
+
+Manual testing was conducted to assess the following:
+
+- Functionality: Ensuring all features work as expected
+- Usability: Verifying the user interface is intuitive and accessible
+- Responsiveness: Checking the application on different devices and screen sizes
+
+### Test Results
+
+All automated tests passed successfully. Manual testing revealed no major issues. Minor bugs were documented and fixed.
+
+## Deployment
+
+The application is deployed on Heroku. Follow these steps to deploy:
+
+1. Create a Heroku account and install the Heroku CLI.
+2. Log in to Heroku:
+    ```bash
+    heroku login
+    ```
+
+3. Create a new Heroku app:
+    ```bash
+    heroku create your-app-name
+    ```
+
+4. Set up environment variables:
+    ```bash
+    heroku config:set SECRET_KEY='your-secret-key'
+    heroku config:set DEBUG=False
+    ```
+
+5. Push the code to Heroku:
+    ```bash
+    git push heroku main
+    ```
+
+6. Run database migrations on Heroku:
+    ```bash
+    heroku run python manage.py migrate
+    ```
+
+7. Create a superuser on Heroku:
+    ```bash
+    heroku run python manage.py createsuperuser
+    ```
+
+### Deployment Documentation
+
+The deployment process is documented in detail in the `deployment.md` file.
+
+## Security Considerations
+
+- Secret keys and passwords are stored in environment variables and not committed to the repository.
+- User permissions are enforced to restrict access to certain features.
+- The application runs in production mode with `DEBUG` turned off.
+
+## Contributing
+
+Contributions are welcome! Please follow these steps to contribute:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix:
+    ```bash
+    git checkout -b feature-name
+    ```
+
+3. Commit your changes with descriptive messages:
+    ```bash
+    git commit -m "Add new feature"
+    ```
+
+4. Push your changes to the branch:
+    ```bash
+    git push origin feature-name
+    ```
+
+5. Create a pull request with a detailed description of your changes.
