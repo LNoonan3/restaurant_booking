@@ -117,8 +117,8 @@ class Reservation(models.Model):
     - **Acceptance criteria 2**: The system validates inputs (e.g., date is in the future, party size is positive).
     - **Acceptance criteria 3**: A clear confirmation message is displayed after a successful reservation, or an error is shown if no table is available.
 
-    ![Booking Form](booking\static\booking\images\README\booking_form.png)
-    ![Confirmation Message](booking\static\booking\images\README\confirmation_message.png)
+    ![Booking Form](booking/static/booking/images/README/booking_form.png)
+    ![Confirmation Message](booking/static/booking/images/README/confirmation_message.png)
 
 ### Customer
 
@@ -127,8 +127,8 @@ class Reservation(models.Model):
     - **Acceptance criteria 2**: The "My Bookings" page lists all current and past reservations with details like date, time, and party size.
     - **Acceptance criteria 3**: Users can cancel an upcoming reservation and receive a cancellation confirmation.
 
-    ![Login Page](booking\static\booking\images\README\login_page.png)
-    ![My Bookings Page](booking\static\booking\images\README\my_bookings_page.png)
+    ![Login Page](booking/static/booking/images/README/login_page.png)
+    ![My Bookings Page](booking/static/booking/images/README/my_bookings_page.png)
 
 ### Administrator
 
@@ -137,7 +137,7 @@ class Reservation(models.Model):
     - **Acceptance criteria 2**: The dashboard displays a summary of all reservations and enables filtering by date or status.
     - **Acceptance criteria 3**: Only authenticated admin users have access to these management features.
 
-    ![Admin Dashboard](booking\static\booking\images\README\admin_dashboard.png)
+    ![Admin Dashboard](booking/static/booking/images/README/admin_dashboard.png)
 
 ### User
 
@@ -146,7 +146,7 @@ class Reservation(models.Model):
     - **Acceptance criteria 2**: (Optional) A confirmation email is sent to the user's email address with booking details.
     - **Acceptance criteria 3**: Clear error messages are provided if the reservation fails (e.g., due to table unavailability).
 
-    ![Error Message](booking\static\booking\images\README\error_message,png.png)
+    ![Error Message](booking/static/booking/images/README/error_message,png.png)
 
 ## Testing
 
