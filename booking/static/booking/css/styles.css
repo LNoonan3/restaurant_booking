@@ -509,7 +509,7 @@ table tr:nth-child(even) td {
     }
 
     main {
-        padding: 1rem;
+        padding: 0;
     }
 
     button {
