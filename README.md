@@ -14,13 +14,14 @@ The Restaurant Booking System is a fully-functioning, interactive web applicatio
 4. [Installation](#installation)
 5. [Usage](#usage)
 6. [Data Model](#data-model)
-7. [User Stories](#user-stories)
-8. [Testing](#testing)
-9. [Deployment](#deployment)
-10. [Security Considerations](#security-considerations)
-11. [Contributing](#contributing)
-10. [Credits](#credits)
-11. [Acknowledgements](#acknowledgements)
+7. [Entity Relationship Diagram](#entity-relationship-diagram)
+8. [User Stories](#user-stories)
+9. [Testing](#testing)
+10. [Deployment](#deployment)
+11. [Security Considerations](#security-considerations)
+12. [Contributing](#contributing)
+13. [Credits](#credits)
+14. [Acknowledgements](#acknowledgements)
 
 ## Features
 
@@ -102,6 +103,10 @@ class Reservation(models.Model):
     guests = models.IntegerField()
 ```
 
+## Entity Relationship Diagram
+
+![Restaurant Booking ERD](booking/static/booking/images/README/restaurant_booking.png)
+
 ## User Stories
 
 ### Guest
@@ -152,19 +157,33 @@ class Reservation(models.Model):
 
 ## Testing
 
-### Automated Testing
+### Automated Python Testing
 
-Automated tests are implemented using Django's testing framework. The tests cover the following aspects:
+Automated tests are implemented in [`booking/tests.py`](booking/tests.py) using Django's test framework.
 
-- Model tests to ensure data integrity
-- View tests to verify the correct rendering of templates
-- Form tests to validate user input
-
-To run the tests, use the following command:
-
+**How to run:**
 ```bash
 python manage.py test
 ```
+
+**Example output:**
+```
+Creating test database for alias 'default'...
+.....
+----------------------------------------------------------------------
+Ran 5 tests in 0.123s
+
+OK
+```
+
+**Test Coverage:**
+- Home page loads and displays welcome message
+- Booking options page loads and displays available tables
+- Users can book a table (with validation for double-booking)
+- Users can view their bookings
+- Users can cancel a reservation
+
+See [`booking/tests.py`](booking/tests.py) for details.
 
 ### Performance Testing
 
@@ -177,11 +196,21 @@ Performance testing was conducted using Lighthouse. The results are:
 
 ### Manual Testing
 
-Manual testing was conducted to assess the following:
+| Feature/User Story                | Steps Taken                                                                 | Expected Result                                   | Actual Result | Pass/Fail |
+|-----------------------------------|-----------------------------------------------------------------------------|---------------------------------------------------|--------------|-----------|
+| Home page loads                   | Visit `/`                                                                   | Welcome message and navigation are visible         | As expected  | Pass      |
+| Book a table                      | Fill booking form with valid data                                           | Booking confirmation shown                        | As expected  | Pass      |
+| Book a table (double booking)     | Try to book same table, date, and time twice                                | Error message shown                               | As expected  | Pass      |
+| View my bookings                  | Log in, go to "My Bookings"                                                 | List of reservations shown                        | As expected  | Pass      |
+| Cancel a reservation              | Click "Cancel" on a reservation                                             | Reservation is deleted, confirmation shown         | As expected  | Pass      |
+| Responsive design                 | Resize browser or use mobile device                                         | Layout adapts, navigation remains accessible       | As expected  | Pass      |
+| Form validation                   | Submit booking form with missing/invalid data                               | Error messages shown, form not submitted           | As expected  | Pass      |
 
-- Functionality: Ensuring all features work as expected
-- Usability: Verifying the user interface is intuitive and accessible
-- Responsiveness: Checking the application on different devices and screen sizes
+### User Story Testing
+
+- As a guest, I can view booking options: Tested by visiting the home and booking pages. Pass.
+- As a user, I can receive booking confirmation: Tested by making a booking. Confirmation page and message displayed. Pass.
+- As an admin, I can manage tables: Tested via Django admin. CRUD operations work as expected. Pass.
 
 ### Test Results
 
